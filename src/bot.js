@@ -28,7 +28,7 @@ client.on('interactionCreate', async interaction => {
   if (interaction.commandName === 'ping') {
     await interaction.reply({ content: `🏓 Pong! ${client.ws.ping}ms`, ephemeral: true });
   } else if (interaction.commandName === 'help') {
-    const embed = new EmbedBuilder().setTitle('Flix Commands').setColor(settings.accent_color || '#7c3aed')
+    const embed = new EmbedBuilder().setTitle('Flix Commands').setColor(settings.accent_color || '#ef4444')
       .setDescription('/ping · /server · /settings · /link · /reload · /help');
     await interaction.reply({ embeds: [embed], ephemeral: true });
   } else if (interaction.commandName === 'link') {
@@ -41,11 +41,10 @@ client.on('interactionCreate', async interaction => {
     const key = interaction.options.getString('key');
     const value = interaction.options.getString('value');
     if (key && value) {
-      const patch = { [key]: value };
-      updateGuildSettings(interaction.guildId, patch);
+      updateGuildSettings(interaction.guildId, { [key]: value });
       await interaction.reply({ content: `Updated \`${key}\``, ephemeral: true });
     } else {
-      await interaction.reply({ embeds: [new EmbedBuilder().setTitle('Guild Settings').setColor(settings.accent_color || '#7c3aed').addFields(
+      await interaction.reply({ embeds: [new EmbedBuilder().setTitle('Guild Settings').setColor(settings.accent_color || '#ef4444').addFields(
         { name: 'Prefix', value: settings.prefix || '!', inline: true },
         { name: 'ER:LC Server', value: settings.erlc_server_id || 'Not set', inline: true },
         { name: 'Log Channel', value: settings.log_channel ? `<#${settings.log_channel}>` : 'Not set', inline: true }
@@ -62,7 +61,7 @@ client.on('interactionCreate', async interaction => {
       if (!response.ok) throw new Error('API unavailable');
       const payload = await response.json();
       const server = payload.data || payload;
-      const embed = new EmbedBuilder().setTitle(server.name || 'ER:LC Server').setColor(settings.accent_color || '#7c3aed')
+      const embed = new EmbedBuilder().setTitle(server.name || 'ER:LC Server').setColor(settings.accent_color || '#ef4444')
         .addFields(
           { name: 'Players', value: String(server.players ?? server.CurrentPlayers ?? 'Unknown'), inline: true },
           { name: 'Status', value: String(server.status || 'Online'), inline: true }
