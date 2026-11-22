@@ -28,7 +28,7 @@ client.on('interactionCreate', async interaction => {
   if (interaction.commandName === 'ping') {
     await interaction.reply({ content: `🏓 Pong! ${client.ws.ping}ms`, ephemeral: true });
   } else if (interaction.commandName === 'help') {
-    const embed = new EmbedBuilder().setTitle('ERLC Hub Commands').setColor(settings.accent_color || '#7c3aed')
+    const embed = new EmbedBuilder().setTitle('Flix Commands').setColor(settings.accent_color || '#7c3aed')
       .setDescription('/ping · /server · /settings · /link · /reload · /help');
     await interaction.reply({ embeds: [embed], ephemeral: true });
   } else if (interaction.commandName === 'link') {
