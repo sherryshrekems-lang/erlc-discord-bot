@@ -1,4 +1,4 @@
-# ERLC Discord Hub
+# CountyLink
 
 A public, self-hostable Discord bot and web dashboard for Roblox **Emergency Response: Liberty County** communities.
 
@@ -9,7 +9,7 @@ A public, self-hostable Discord bot and web dashboard for Roblox **Emergency Res
 - Slash commands: `/ping`, `/settings`, `/server`, `/link`, `/reload`, `/help`
 - ER:LC server status lookup through a configurable API base URL
 - Moderation logging, member counts, and role/department assignment channels
-- Dark dashboard inspired by a modern game-community aesthetic
+- Original dark CountyLink visual identity and dashboard
 - SQLite storage with no external database required
 - Docker support
 
@@ -43,7 +43,7 @@ Optional:
 
 - `PORT` — web server port (default `3000`)
 - `ERLC_API_BASE_URL` — ER:LC-compatible JSON API base URL
-- `DATABASE_PATH` — SQLite file location (default `./data/config.db`)
+- `DATABASE_PATH` — SQLite file location (default: `./data/config.db`)
 
 Never commit real secrets. Invite the bot with the permissions you need at Discord Developer Portal → OAuth2 → URL Generator.
 
@@ -51,4 +51,4 @@ Never commit real secrets. Invite the bot with the permissions you need at Disco
 
 The `/server` command expects your API endpoint to return JSON. It first attempts `${ERLC_API_BASE_URL}/servers/:id`, then `${ERLC_API_BASE_URL}/server/:id`. A plain object or `{ data: ... }` is accepted.
 
-The bot is not affiliated with Roblox or ER:LC.
+CountyLink is an independent project and is not affiliated with Roblox or ER:LC.
